@@ -1,7 +1,7 @@
 'use strict';
 
-var Joi  = require('joi'),
-    User = require('../../../models/user');
+var Joi  = require('joi');
+    //User = require('../../../models/user');
 
 module.exports = {
   description: 'Register a User',
@@ -17,12 +17,6 @@ module.exports = {
     mode: 'try'
   },
   handler: function(request, reply){
-    var user = new User(request.payload);
-    user.encrypt();
-    user.download(function(){
-      user.save(function(err){
-        reply().code(err ? 401 : 200);
-      });
-    });
+    reply();
   }
 };
