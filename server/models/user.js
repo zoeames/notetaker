@@ -24,6 +24,25 @@ User.register = function(obj, cb){
     });
 };
 
+User.login = function(obj, cb){
+    pg.query('select * from users where username like $1 limit 1', [obj.username], function(err, results){
+        console.log('query results', results.rows[0].username);
+        debugger;
+        if(!results){
+            return cb();
+        }
+
+        var isGood = bcrypt.compareSync(obj.password, results.rows[0].password);
+
+        if(!isGood){
+            return cb();
+        }
+
+        cb(results);
+    });
+};
+
+
 function randomUrl(url, cb){
     var ext  = path.extname(url);
 
