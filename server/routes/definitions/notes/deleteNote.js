@@ -1,19 +1,19 @@
 'use strict';
 
-var //Joi  = require('joi'),
+var Joi = require('Joi'),
     Note = require('../../../models/note');
 
 module.exports = {
-    description: 'List of all notes',
+    description: 'Delete a Notes',
     tags:['notes'],
-    auth: {
-        mode: 'required'
+    validate: {
+        params: {
+            id: Joi.number()
+        }
     },
     handler: function(request, reply){
-        Note.deleteNote(request.auth.credentials.id, function(err, notes){
-            if(!err){reply(notes).code(200);
-            }else{reply().code(400);
-            }
+        Note.deleteNote(request.params.id, function(err, result){
+            reply(result);
         });
     }
 };

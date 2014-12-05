@@ -36,4 +36,4 @@ div
                 td {{note.title}}
                 td {{note.body}}
                 td {{note.created_at}}
-                td: button(ng-click='deleteNote(note.id)') Delete
+                td: button(ng-click='deleteNote(note.id, $index)') Delete

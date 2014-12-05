@@ -13,7 +13,7 @@
         }
 
         function deleteNote(id){
-          return $http.post('/deleteNote', id);
+          return $http.delete('/notes/'+ id);
         }
 
         return {create:create, all:all, deleteNote:deleteNote};

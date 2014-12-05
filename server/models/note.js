@@ -18,13 +18,18 @@ Note.all = function(userID, cb){
   });
 
 };
-
+/*
 Note.deleteNote= function(id, cb){
   pg.query('DELETE FROM notes WHERE id=' + id + ';', [], function(err, results){
     cb(err, results.rows);
   });
-
+*/
+Note.deleteNote = function(id, cb){
+  pg.query('SELECT * FROM delete_note($1)', [id], function(err, results){
+    cb(err, results.rows);
+  });
 };
+
 
 
 module.exports = Note;

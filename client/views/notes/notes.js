@@ -9,19 +9,27 @@
           Note.create(note).then(function(response){
             console.log(response.data);
             $scope.note = {};
+            all();
           }, function(){
             console.log('error');
           });
         };
 
 
-        Note.all().then(function(res){
-          $scope.notes = res.data;
-        });
 
-        Note.deleteNote().then(function(res){
-          Note.all();
-        });
+        function all(){
+          Note.all().then(function(response){
+            $scope.notes = response.data;
+          });
+        }
+
+        all();
+
+        $scope.deleteNote = function(id, index){
+          Note.deleteNote(id).then(function(response){
+            $scope.notes.splice(index, 1);
+          });
+        };
 
       }]);
 })();
