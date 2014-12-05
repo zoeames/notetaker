@@ -1,0 +1,23 @@
+h1 NOTES
+.row
+    .small-12.columns
+        form
+            .row
+                .small-4.columns
+                .small-4.columns
+                    label(for='username') Title
+                    input(type='text', name='title', ng-model='note.title')
+                .small-4.columns
+            .row
+                .small-2.columns
+                .small-6.columns
+                    label(for='tags') Tags
+                    input(type='text', name='tags', ng-model='note.tags')
+                .small-2.columns
+            .row
+                .small-2.columns
+                .small-8.columns
+                    label(for='note') Note
+                    input(type='text',name='note', ng-model='note.body')
+                .small-2.columns
+button(ng-click='create(note)') Create

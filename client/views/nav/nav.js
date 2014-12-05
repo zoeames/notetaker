@@ -6,7 +6,6 @@
       $scope.logout = function(){
         User.logout().then(function(){
           $rootScope.rootuser = null;
-          toastr.success('User successfully logged out.');
           $state.go('home');
         });
       };

@@ -6,7 +6,6 @@ var Hapi         = require('hapi'),
   plugins        = require('./routes/config/plugins'),
   authentication = require('./routes/config/authentication');
 
-
 server.pack.register(plugins, function(){
   server.auth.strategy('session', 'cookie', true, authentication);
   server.route(routes);
