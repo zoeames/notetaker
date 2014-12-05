@@ -8,6 +8,7 @@
         $scope.create = function(note){
           Note.create(note).then(function(response){
             console.log(response.data);
+            $scope.note = {};
           }, function(){
             console.log('error');
           });
