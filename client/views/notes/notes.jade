@@ -21,3 +21,19 @@ h1 NOTES
                     input(type='text',name='note', ng-model='note.body')
                 .small-2.columns
 button(ng-click='create(note)') Create
+
+h1 My Notes
+div
+    table
+        thead
+            tr
+                th Title
+                th Body
+                th Date Created
+                th
+        tbody(ng-repeat='note in notes')
+            tr
+                td {{note.title}}
+                td {{note.body}}
+                td {{note.created_at}}
+                td: button(ng-click='deleteNote(note.id)') Delete
