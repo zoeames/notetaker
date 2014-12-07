@@ -2,20 +2,20 @@
   'use strict';
 
   angular.module('hapi-auth')
-      .factory('Note', ['$http', function($http){
+  .factory('Note', ['$http', function($http){
 
-        function create(note){
-          return $http.post('/notes', note);
-        }
+    function create(note){
+      return $http.post('/notes', note);
+    }
 
-        function all(){
-          return $http.get('/notes');
-        }
+    function recent(){
+      return $http.get('/notes?limit=10&offset=0');
+    }
 
-        function deleteNote(id){
-          return $http.delete('/notes/'+ id);
-        }
+    function deleteNote(id){
+      return $http.delete('/notes/'+ id);
+    }
 
-        return {create:create, all:all, deleteNote:deleteNote};
-      }]);
+    return {create:create, recent:recent, deleteNote:deleteNote};
+  }]);
 })();

@@ -1,39 +1,29 @@
 h1 NOTES
-.row
-    .small-12.columns
-        form
-            .row
-                .small-4.columns
-                .small-4.columns
-                    label(for='username') Title
-                    input(type='text', name='title', ng-model='note.title')
-                .small-4.columns
-            .row
-                .small-2.columns
-                .small-6.columns
-                    label(for='tags') Tags
-                    input(type='text', name='tags', ng-model='note.tags')
-                .small-2.columns
-            .row
-                .small-2.columns
-                .small-8.columns
-                    label(for='note') Note
-                    input(type='text',name='note', ng-model='note.body')
-                .small-2.columns
-button(ng-click='create(note)') Create
 
-h1 My Notes
-div
-    table
-        thead
-            tr
-                th Title
-                th Body
-                th Date Created
-                th
-        tbody(ng-repeat='note in notes')
-            tr
-                td {{note.title}}
-                td {{note.body}}
-                td {{note.created_at}}
-                td: button(ng-click='deleteNote(note.id, $index)') Delete
+.row
+  .small-8.columns
+    h3 VIEW
+    table#notes
+      thead
+        tr
+          th
+          th Title
+          th Date Created
+          th Tags
+      tbody
+        tr(ng-repeat='note in notes')
+          td: button(ng-click='deleteNote(note.id, $index)') X
+          td {{note.title}}
+          td {{note.created_at}}
+          td
+            span.tag(ng-repeat='name in note.tag_names')
+              a(href='/notes?tag={{name}}') {{name}}
+  .small-4.columns
+    h3 CREATE
+    label(for='title') Title
+    input(type='text', name='title', ng-model='note.title', placeholder='Title')
+    label(for='note') Note
+    textarea(name='note', ng-model='note.body')
+    label(for='tags') Tags
+    input(type='text', name='tags', ng-model='note.tags', placeholder='tag1,tag2,tag3')
+    button.radius.success(ng-click='create(note)') Create

@@ -7,6 +7,6 @@ module.exports = [
   {method: 'delete', path: '/logout',   config: require('../definitions/users/logout')},
   {method: 'get',    path: '/status',   config: require('../definitions/users/status')},
   {method: 'post',   path: '/notes',    config: require('../definitions/notes/create')},
-  {method: 'get',    path: '/notes',    config: require('../definitions/notes/all')},
+  {method: 'get',    path: '/notes',    config: require('../definitions/notes/query')},
   {method: 'delete',    path: '/notes/{id}',    config: require('../definitions/notes/deleteNote')}
 ];

@@ -1,6 +1,6 @@
 'use strict';
 
-var Joi = require('joi'),
+var joi = require('joi'),
     Note = require('../../../models/note');
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
     tags:['notes'],
     validate: {
         params: {
-            id: Joi.number()
+            id: joi.number()
         }
     },
     handler: function(request, reply){
