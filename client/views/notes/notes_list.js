@@ -9,6 +9,7 @@
     $scope._ = _;
 
     Note.query($state.params.tag || '%', $state.params.page * 1 || 0).then(function(response){
+      debugger;
       $scope.notes = response.data.notes;
     });
 
@@ -30,6 +31,7 @@
     $scope.create = function(note){
       $scope.count = 0;
       Note.create(note).then(function(response){
+        console.log('THIS IS THE response.data >>>>>', response.data);
         $scope.note = {};
         Note.upload(response.data.noteId, $scope.files);
       });

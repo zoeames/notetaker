@@ -13,6 +13,7 @@ function Note(){
 
 Note.create = function(user, obj, cb){
   pg.query('select add_note($1, $2, $3, $4)', [user.id, obj.title, obj.body, obj.tags], function(err, results){
+    console.log('SERVER', results);
     cb(err, results && results.rows ? results.rows[0].add_note : null);
   });
 };
