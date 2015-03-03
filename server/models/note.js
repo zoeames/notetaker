@@ -20,6 +20,7 @@ Note.create = function(user, obj, cb){
 
 Note.query = function(user, query, cb){
   pg.query('select * from query_notes($1, $2, $3, $4)', [user.id, query.limit || 10, query.offset || 0, query.tag || '%'], function(err, results){
+    console.log('SERVER results find_notes:', results.rows);
     cb(err, results && results.rows ? results.rows : null);
   });
 };
