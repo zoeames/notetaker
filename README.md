@@ -1,7 +1,7 @@
 ## Notetaker
 
 ### About
-A Craigslist Ebay hybrid where you can trade your stuff.
+A simple note taking app that allows you to upload photos with your notes.
 
 ### Screenshots
 ![Image1](https://raw.githubusercontent.com/zoeames/notetaker/master/docs/screenshots/notetaker.png)
